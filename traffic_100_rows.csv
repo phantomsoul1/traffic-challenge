@@ -1,0 +1,100 @@
+ID,TMC,Severity,Start_Time,End_Time,Start_Lat,Start_Lng,Description,State
+A-1,201.0,3,2016-02-08 05:46:00,2016-02-08 11:00:00,39.865147,-84.058723,Right lane blocked due to accident on I-70 Eastbound at Exit 41 OH-235 State Route 4.,OH
+A-2,201.0,2,2016-02-08 06:07:59,2016-02-08 06:37:59,39.928059000000005,-82.831184,Accident on Brice Rd at Tussing Rd. Expect delays.,OH
+A-3,201.0,2,2016-02-08 06:49:27,2016-02-08 07:19:27,39.063148,-84.032608,Accident on OH-32 State Route 32 Westbound at Dela Palma Rd. Expect delays.,OH
+A-4,201.0,3,2016-02-08 07:23:34,2016-02-08 07:53:34,39.747753,-84.20558199999999,Accident on I-75 Southbound at Exits 52 52B US-35. Expect delays.,OH
+A-5,201.0,2,2016-02-08 07:39:07,2016-02-08 08:09:07,39.627781,-84.188354,Accident on McEwen Rd at OH-725 Miamisburg Centerville Rd. Expect delays.,OH
+A-6,201.0,3,2016-02-08 07:44:26,2016-02-08 08:14:26,40.100590000000004,-82.92519399999999,Accident on I-270 Outerbelt Northbound near Exit 29 OH-3 State St. Expect delays.,OH
+A-7,201.0,2,2016-02-08 07:59:35,2016-02-08 08:29:35,39.758274,-84.23050699999999,Accident on Oakridge Dr at Woodward Ave. Expect delays.,OH
+A-8,201.0,3,2016-02-08 07:59:58,2016-02-08 08:29:58,39.770382,-84.194901,Accident on I-75 Southbound at Exit 54B Grand Ave. Expect delays.,OH
+A-9,201.0,2,2016-02-08 08:00:40,2016-02-08 08:30:40,39.778061,-84.172005,Accident on Notre Dame Ave at Warner Ave. Expect delays.,OH
+A-10,201.0,3,2016-02-08 08:10:04,2016-02-08 08:40:04,40.100590000000004,-82.92519399999999,Right hand shoulder blocked due to accident on I-270 Outerbelt Westbound at Exit 29 OH-3 State St.,OH
+A-11,201.0,3,2016-02-08 08:14:42,2016-02-08 08:44:42,39.952812,-83.119293,Accident on I-270 Outerbelt Northbound at Exits 7 7A 7B US-40 Broad St. Expect delays.,OH
+A-12,241.0,3,2016-02-08 08:21:27,2016-02-08 08:51:27,39.932709,-82.83091,One lane blocked due to accident on I-70 Westbound at Exits 110 110A 110B Brice Rd. Expect delays.,OH
+A-13,201.0,2,2016-02-08 08:36:34,2016-02-08 09:06:34,39.737633,-84.14993299999999,Accident on Revere Ave at Watervliet Ave. Expect delays.,OH
+A-14,201.0,2,2016-02-08 08:37:07,2016-02-08 09:07:07,39.79076,-84.241547,Accident on Salem Ave at Hillcrest Ave / Kensington Dr. Expect delays.,OH
+A-15,201.0,2,2016-02-08 08:39:43,2016-02-08 09:09:43,39.972038,-82.913521,Accident on OH-16 Broad St at James Rd. Expect delays.,OH
+A-16,201.0,2,2016-02-08 08:43:20,2016-02-08 09:13:20,39.745888,-84.17041,Accident on Wayne Ave at Glencoe Ave. Expect delays.,OH
+A-17,201.0,2,2016-02-08 08:53:17,2016-02-08 09:23:17,39.748329,-84.224007,Accident on James H McGee Blvd at US-35. Expect delays.,OH
+A-18,201.0,2,2016-02-08 09:24:37,2016-02-08 09:54:37,39.752174,-84.239952,Accident on Delphos Ave at Brooklyn Ave. Expect delays.,OH
+A-19,201.0,2,2016-02-08 09:25:17,2016-02-08 09:55:17,39.740669,-84.184135,Accident on Stewart St near Rubicon St. Expect delays.,OH
+A-20,201.0,2,2016-02-08 09:35:35,2016-02-08 10:05:35,39.790703,-84.244461,Accident on Hillcrest Ave at Piccadilly Ave. Expect delays.,OH
+A-21,201.0,2,2016-02-08 10:11:15,2016-02-08 10:41:15,40.052509,-82.88233199999999,Accident on Brookhill Dr at Glenhurst Ct.,OH
+A-22,201.0,2,2016-02-08 10:24:27,2016-02-08 10:54:27,39.773346000000004,-84.224686,Accident on Princeton Dr at Catalpa Dr. Expect delays.,OH
+A-23,201.0,2,2016-02-08 11:53:19,2016-02-08 12:23:19,39.628288,-84.226151,Accident on OH-741 Springboro Pike at Lyons Rd. Expect delays.,OH
+A-24,201.0,3,2016-02-08 12:00:00,2016-02-08 12:45:00,40.023487,-82.994888,Accident on I-71 Northbound at Exit 113 Silver Dr. On exit ramp.,OH
+A-25,201.0,2,2016-02-08 12:16:44,2016-02-08 13:01:44,39.761379,-84.25921600000001,Accident on Hoover Ave at Elmhurst Rd.,OH
+A-26,201.0,2,2016-02-08 12:41:08,2016-02-08 13:11:08,40.158024,-82.641762,Accident on County Hwy-16 Sportsman Club Rd between Liberty Ridge Ct and Nichols Ln.,OH
+A-27,201.0,2,2016-02-08 12:52:05,2016-02-08 13:37:05,39.733219,-84.159653,Accident on Irving Ave at Wilmington Ave.,OH
+A-28,201.0,2,2016-02-08 14:24:48,2016-02-08 15:09:48,39.775303,-84.200523,Accident on Helena St at OH-48 Main St.,OH
+A-29,201.0,2,2016-02-08 14:56:57,2016-02-08 15:41:57,39.789322,-84.23910500000001,Accident on Salem Ave at Litchfield Ave.,OH
+A-30,201.0,2,2016-02-08 15:26:14,2016-02-08 16:11:14,39.758720000000004,-84.183762,Accident on 4th St at Wayne Ave.,OH
+A-31,201.0,2,2016-02-08 16:16:08,2016-02-08 16:46:08,40.081459,-83.122398,Accident on Frantz Rd Southbound at Bradenton Ave.,OH
+A-32,201.0,2,2016-02-08 17:39:24,2016-02-08 18:24:24,39.83321,-84.112946,Accident on Powell Rd at Bellefontaine Rd. Approach with care.,OH
+A-33,201.0,3,2016-02-08 18:24:00,2016-02-08 21:00:00,40.042725,-82.99730699999999,Left lane blocked due to accident on I-71 Southbound at Exit 115 Cooke Rd.,OH
+A-34,201.0,3,2016-02-08 19:28:00,2016-02-08 21:00:00,39.974415,-82.848854,Right lane blocked due to accident on I-270 Outerbelt Northbound at Exit 39 OH-16 Broad St.,OH
+A-35,201.0,2,2016-02-08 20:22:38,2016-02-08 21:07:38,39.994766,-83.02449,Accident on OH-315 Olentangy Fwy Eastbound at Cannon Dr.,OH
+A-36,201.0,2,2016-02-08 20:43:00,2016-02-08 23:00:00,40.006477000000004,-83.030991,Right lane blocked due to accident on OH-315 Olentangy Fwy Northbound between Cannon Dr and Lane Ave.,OH
+A-37,201.0,2,2016-02-09 04:28:48,2016-02-09 04:58:48,39.742062,-84.186996,Accident on OH-48 Main St at Fairground Ave. Expect delays.,OH
+A-38,201.0,2,2016-02-09 05:04:34,2016-02-09 05:34:34,39.843521,-82.78157,Accident on US-33 Columbus Lancaster Rd Eastbound at County Hwy-18 Diley Rd. Expect delays.,OH
+A-39,201.0,2,2016-02-09 05:17:08,2016-02-09 05:47:08,39.782578,-84.178688,Accident on Leo St at Kiser St. Expect delays.,OH
+A-40,201.0,3,2016-02-09 05:27:20,2016-02-09 05:57:20,40.007626,-82.912155,Accident on I-670 Northeast Fwy Eastbound near I-270 Outerbelt Exits 35A 35B. Expect delays.,OH
+A-41,201.0,2,2016-02-09 05:40:57,2016-02-09 06:10:57,39.447502,-84.19120799999999,Accident on Monroe Rd near Shaker Run Rd. Expect delays.,OH
+A-42,201.0,2,2016-02-09 05:47:16,2016-02-09 06:17:16,39.787731,-84.173439,Accident on Stanley Ave at Kuntz Rd.,OH
+A-43,201.0,2,2016-02-09 05:56:10,2016-02-09 06:26:10,39.426277,-83.624611,Accident on OH-72 State Route 72 Northbound at Point Isabel Rd.,OH
+A-44,201.0,3,2016-02-09 06:06:45,2016-02-09 06:36:45,39.978305999999996,-82.852554,Accident on I-270 Outerbelt near Exit 39 OH-16 Broad St.,OH
+A-45,201.0,3,2016-02-09 06:13:33,2016-02-09 06:43:33,39.84182,-84.18960600000001,Accident on I-75 Northbound at Exit 59 Wyse Rd. Expect delays.,OH
+A-46,201.0,3,2016-02-09 06:12:49,2016-02-09 06:42:49,39.953625,-82.958954,Accident on I-70 Eastbound at Exit 102 Kelton Ave. Expect delays.,OH
+A-47,201.0,2,2016-02-09 06:21:50,2016-02-09 06:51:50,40.053082,-83.049644,Accident on Kenny Rd at Henderson Rd. Expect delays.,OH
+A-48,201.0,3,2016-02-09 06:20:46,2016-02-09 06:50:46,39.936873999999996,-82.878723,Right hand shoulder blocked due to accident on I-70 Westbound at Exits 107 107A 107B OH-317 Hamilton Rd.,OH
+A-49,201.0,2,2016-02-09 06:34:41,2016-02-09 07:04:41,39.780643,-84.16349,Accident on Stanley Ave at OH-201 Brandt St. Expect delays.,OH
+A-50,201.0,3,2016-02-09 06:41:09,2016-02-09 07:11:09,39.773193,-84.187454,Accident on I-75 Northbound at Exits 54A 54B OH-4. Expect delays.,OH
+A-51,201.0,2,2016-02-09 06:48:18,2016-02-09 07:18:18,39.77858,-84.20468100000001,Accident on OH-48 Main St at Burton Ave. Expect delays.,OH
+A-52,201.0,2,2016-02-09 06:53:09,2016-02-09 07:23:09,39.792988,-84.20607,Accident on Riverside Dr at Pointview Ave. Expect delays.,OH
+A-53,201.0,3,2016-02-09 06:54:31,2016-02-09 07:24:31,39.770382,-84.194901,Accident on I-75 Northbound at Exit 54B Grand Ave. Expect delays.,OH
+A-54,201.0,3,2016-02-09 07:03:20,2016-02-09 07:33:20,39.976397999999996,-83.119225,Accident on I-70 Eastbound at Exits 93 93A 93B I-270 Outerbelt. Expect delays.,OH
+A-55,201.0,3,2016-02-09 07:05:37,2016-02-09 07:35:37,39.6395,-84.23136099999999,Accident on I-75 Southbound at Exit 44 OH-725 Miamisburg Centerville Rd. Expect delays.,OH
+A-56,201.0,2,2016-02-09 07:04:58,2016-02-09 07:34:58,39.232578000000004,-84.159286,Accident on OH-28 State Route 28 at Wood St. Expect delays.,OH
+A-57,201.0,2,2016-02-09 07:15:41,2016-02-09 07:45:41,39.746593,-84.23912,Accident on McCall St at Abbey Ave. Expect delays.,OH
+A-58,201.0,2,2016-02-09 07:41:01,2016-02-09 08:11:01,39.742783,-84.182472,Accident on Brown St at Fairground Ave. Expect delays.,OH
+A-59,201.0,2,2016-02-09 07:42:43,2016-02-09 08:12:43,39.75452,-84.159279,Accident on US-35 Eastbound at Steve Whalen Blvd. Expect delays.,OH
+A-60,201.0,2,2016-02-09 07:42:11,2016-02-09 08:12:11,39.749916,-84.139359,Accident on US-35 Eastbound at Smithville Rd. Expect delays.,OH
+A-61,201.0,3,2016-02-09 07:46:41,2016-02-09 08:16:41,40.100903,-82.98410799999999,Accident on I-270 Outerbelt Southbound at Exit 26 I-71.,OH
+A-62,201.0,2,2016-02-09 07:54:44,2016-02-09 08:24:44,39.772808000000005,-84.201851,Accident on 5 Oaks Ave at Forest Ave. Expect delays.,OH
+A-63,201.0,2,2016-02-09 08:06:39,2016-02-09 08:36:39,39.492484999999995,-84.131798,Accident on US-42 State Route 42 at Middletown Rd. Expect delays.,OH
+A-64,201.0,2,2016-02-09 08:12:44,2016-02-09 08:42:44,39.570904,-84.251724,Accident on County Hwy-119 Clearcreek Rd near Tamarack Trl. Expect delays.,OH
+A-65,201.0,2,2016-02-09 08:10:20,2016-02-09 08:40:20,39.834282,-82.74382,Accident on US-33 Columbus Lancaster Rd Westbound near County Hwy-20 Pickerington Rd. Expect delays.,OH
+A-66,201.0,3,2016-02-09 08:23:36,2016-02-09 08:53:36,39.622787,-84.229858,Accident on I-75 Southbound at I-675. Expect delays.,OH
+A-67,201.0,3,2016-02-09 08:24:29,2016-02-09 08:54:29,39.429871,-84.079666,Right hand shoulder blocked due to accident on I-71 Southbound at Exit 36 County Hwy-7 Wilmington Rd.,OH
+A-68,201.0,3,2016-02-09 08:20:30,2016-02-09 08:50:30,41.407391,-81.64676700000001,Accident on I-480 Westbound at Exit 20A-B I-77. Expect delays.,OH
+A-69,201.0,3,2016-02-09 08:35:53,2016-02-09 09:05:53,41.424403999999996,-81.57867399999999,Accident on I-480 Eastbound at Exit 23 OH-14 Broadway Ave.,OH
+A-70,241.0,3,2016-02-09 10:06:46,2016-02-09 10:36:46,39.89217,-83.039169,One lane blocked due to accident on I-270 Outerbelt Westbound at Exit 55 I-71.,OH
+A-71,241.0,2,2016-02-09 11:09:37,2016-02-09 11:39:37,41.022358000000004,-83.650345,One lane blocked due to accident on Main St Southbound at Lake Cascade Pkwy.,OH
+A-72,201.0,2,2016-02-10 06:18:16,2016-02-10 06:48:16,39.206806,-84.053253,Accident on Short Leuders Rd at OH-133 State Route 133. Expect delays.,OH
+A-73,241.0,3,2016-02-10 06:06:00,2016-02-10 09:06:00,39.973797,-83.022285,One lane blocked due to accident on OH-315 Olentangy Fwy Northbound at Goodale St.,OH
+A-74,201.0,2,2016-02-10 06:24:29,2016-02-10 06:54:29,40.048008,-82.86421999999999,Accident on Vista Dr at Hamilton Rd.,OH
+A-75,201.0,2,2016-02-10 06:53:02,2016-02-10 07:23:02,39.814526,-84.021744,Accident on OH-444 Central Ave at Kauffman Ave. Expect delays.,OH
+A-76,201.0,3,2016-02-10 07:50:52,2016-02-10 08:20:52,40.151196,-84.22003199999999,Accident on I-75 Northbound at Exit 82 US-36 Ash St. Expect delays.,OH
+A-77,201.0,3,2016-02-10 07:50:08,2016-02-10 08:20:08,39.954617,-82.844238,Accident on I-270 Outerbelt Eastbound at Exit 43A-B/41A-B US-40 Main St. Expect delays.,OH
+A-78,247.0,2,2016-02-10 08:01:30,2016-02-10 08:31:30,38.990551,-84.207497,Delays due to accident on Lindale Mount Holly Rd at Lindale Nicholsville Rd.,OH
+A-79,201.0,2,2016-02-10 08:08:36,2016-02-10 08:38:36,40.008995,-83.002678,Accident on Indianola Ave at Oakland Ave. Expect delays.,OH
+A-80,201.0,2,2016-02-10 08:11:22,2016-02-10 08:41:22,39.077332,-84.225014,Accident on Lake Allyn Rd at Amelia Olive Branch Rd.,OH
+A-81,201.0,2,2016-02-10 08:50:54,2016-02-10 09:20:54,39.955452,-82.795845,Accident on US-40 Main St Eastbound at Cypress Aly.,OH
+A-82,201.0,3,2016-02-10 09:03:53,2016-02-10 09:33:53,40.224585999999995,-82.929085,Accident on I-71 Northbound at Rest Stop North.,OH
+A-83,201.0,3,2016-02-10 09:42:04,2016-02-10 10:12:04,39.976397999999996,-83.119225,Accident on I-270 Outerbelt Southbound at I-70 Exits 93 93A 93B. Expect delays.,OH
+A-84,241.0,3,2016-02-10 10:38:58,2016-02-10 11:08:58,39.985603000000005,-82.939247,One lane blocked due to accident on I-670 Eastbound at Exit 7 US-62. Expect delays.,OH
+A-85,201.0,3,2016-02-10 17:10:00,2016-02-10 23:59:00,41.040714,-81.61314399999999,Left lane blocked due to accident on I-76 Westbound at Exit 16 Barber Rd.,OH
+A-86,201.0,3,2016-02-10 18:09:00,2016-02-10 23:59:00,41.083679,-81.579002,Left lane blocked due to accident on I-77 Northbound between Exit 130 OH-261 Vernon Odom Blvd and Exit 131 OH-162 Copley Rd.,OH
+A-87,201.0,3,2016-02-10 18:41:44,2016-02-10 19:11:44,40.766890999999994,-82.42411,Accident on I-71 Northbound in Crimson. Approach with care.,OH
+A-88,201.0,3,2016-02-11 05:32:29,2016-02-11 06:02:29,41.422199,-81.843018,Accident on I-480 Westbound at Exit 9 OH-17 Brookpark Rd. Expect delays.,OH
+A-89,201.0,3,2016-02-11 05:30:51,2016-02-11 06:00:51,41.063995,-81.57294499999999,Accident on I-77 Southbound at Exit 130 OH-261 Vernon Odom Blvd. Expect delays.,OH
+A-90,201.0,2,2016-02-11 06:10:07,2016-02-11 06:40:07,39.747753,-84.20558199999999,Accident on US-35 Eastbound at I-75. Expect delays.,OH
+A-91,201.0,2,2016-02-11 06:20:28,2016-02-11 06:50:28,38.99408,-84.142021,Accident on OH-125 State Route 125 at Bantam Rd. Expect delays.,OH
+A-92,201.0,3,2016-02-11 06:29:00,2016-02-11 21:00:00,41.420818,-81.694008,Accident on I-480 Eastbound at Exit 16 OH-94 State Rd. Expect delays.,OH
+A-93,201.0,2,2016-02-11 07:17:58,2016-02-11 07:47:58,40.030342,-83.030197,Accident on North Broadway St at OH-315 Olentangy Fwy Exits 6 6A-B-C. Expect delays.,OH
+A-94,201.0,2,2016-02-11 07:18:39,2016-02-11 07:48:39,39.858089,-82.827904,Accident on US-33 Columbus Lancaster Rd at OH-674 Gender Rd. Expect delays.,OH
+A-95,201.0,3,2016-02-11 07:21:55,2016-02-11 07:51:55,41.112324,-81.60992399999999,Accident on I-77 Northbound at Exit 133 Ridgewood Rd. Expect delays.,OH
+A-96,201.0,2,2016-02-11 07:28:16,2016-02-11 07:58:16,39.994061,-82.729416,Accident on OH-16 Broad St at County Hwy-41 Mink St. Expect delays.,OH
+A-97,201.0,3,2016-02-11 07:29:06,2016-02-11 08:18:10,41.355396,-81.81926700000001,Accident on I-71 Northbound at Exit 234 US-42 Pearl Rd.,OH
+A-98,201.0,2,2016-02-11 07:53:55,2016-02-11 08:23:55,39.687389,-84.23796800000001,Accident on Vance Rd at Main St. Expect delays.,OH
+A-99,201.0,2,2016-02-11 08:07:02,2016-02-11 08:37:02,39.751038,-84.214325,Accident on Broadway St at Home Ave. Expect delays.,OH
