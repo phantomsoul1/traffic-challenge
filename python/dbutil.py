@@ -13,18 +13,25 @@ def connect(db_file):
 
     return conn
 
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
 def get_all_crashes(conn):
     """
     conn: sqlite3 connection object
     """
-    sql = "fSELECT * FROM {crash_table}"
-    rows = None
+    sql = f"SELECT * FROM {crash_table}"
 
     try:
+        conn.row_factory = dict_factory
         cur = conn.cursor()
         cur.execute(sql)
 
         rows = cur.fetchall()
+
     except Error as e:
         print(e)
 
@@ -32,4 +39,5 @@ def get_all_crashes(conn):
 
 def get_crash_table():
     return crash_table
+
     
