@@ -1,4 +1,5 @@
 
+.DS_Store
 .vscode/settings.json
 python/__pycache__/csv.cpython-37.pyc
 python/__pycache__/dbutil.cpython-37.pyc
