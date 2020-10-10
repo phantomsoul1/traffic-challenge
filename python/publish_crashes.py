@@ -2,10 +2,12 @@ import dbutil
 import os.path
 import sqlite3
 from flask import Flask, redirect, Response, json
+from flask_cors import CORS
 from sqlite3 import Error
 
 #set up flask app
 app = Flask(__name__)
+cors = CORS(app)
 
 #global crash list - we don't need to reload this every time its requested
 crash_list = None
