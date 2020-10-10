@@ -29,3 +29,4 @@ We should look into a way to more-durably publish this before presenting, but th
     * See the ETL section above for details
 * SQLAlchemy (`pip install SQLAlchemy`)
 * SQLite (`pip install sqlite3`)
+* Flask CORS (`pip install flask-cors`)
