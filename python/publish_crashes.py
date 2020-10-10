@@ -1,7 +1,7 @@
 import dbutil
 import os.path
 import sqlite3
-from flask import Flask, redirect, json
+from flask import Flask, redirect, Response, json
 from sqlite3 import Error
 
 #set up flask app
@@ -24,8 +24,11 @@ def home():
 @app.route('/crashes')
 def crashes():
 
+    if (crash_list):
+        return Response(json.dumps(crash_list),  mimetype='application/json')
+
     # return the crash list as a json object
-    return json.jsonify(crash_list)
+    return redirect("/refresh")
 
 # refresh the crash list and the redirect to showing the results
 @app.route('/refresh')
