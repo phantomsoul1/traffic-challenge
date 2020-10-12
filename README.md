@@ -1,6 +1,9 @@
 # traffic-challenge
 A look into recent traffic accident information
 
+Dataset provided by Kaggle on the following link:
+https://www.kaggle.com/sobhanmoosavi/us-accidents
+
 ## ETL
 The ETL process is governed by the script in `/python/ingest_crashes.py`.
 
