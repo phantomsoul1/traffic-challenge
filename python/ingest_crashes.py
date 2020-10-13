@@ -6,7 +6,7 @@ from sqlite3 import Error
 
 def main():
 
-    file_names = ['traffic_2019_1h.csv', 'traffic_2019_2h.csv']
+    file_names = ['traffic_2019_NJ.csv']
 
     # get absolute path present working directory
     # (this is needed to find other files in this project, like CSV and DB)
