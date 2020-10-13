@@ -38,7 +38,7 @@ def get_all_crashes(conn):
     """
     
     # sql statement, incorporating the table name described above
-    sql = f"SELECT * FROM {crash_table}"
+    sql = f"SELECT * FROM {crash_table} limit 1000"
 
     try:
 
