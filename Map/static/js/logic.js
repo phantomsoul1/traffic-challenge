@@ -16,8 +16,8 @@ var layers = {
 
 // Create the map with our layers
 var map = L.map("map-id", {
-  center: [34.0522, -118.2437],
-  zoom: 4,
+  center: [40.0583, -74.4057],
+  zoom: 8,
   layers: [
     layers.Fender_Bender,
     layers.Moderate,
@@ -84,19 +84,19 @@ var icons = {
 };
 
 // Perform an API call to the RESTAPI to get the crash data.
-var queryUrl = "http://127.0.0.1:5000/crashes"
+var queryUrl = "http://127.0.0.1:5000/crashes?county=essex&month=7"
 
 // Parse the data in to Latitude, Longitude, and Severity for the map.
   d3.json(queryUrl, function(crashes)  {
     var lat = crashes.map(data => data.start_lat);
     var lng = crashes.map(data => data.start_lng);
     var severity = crashes.map(data => data.severity);
-    var city = crashes.map(data => data.City);
-    var county = crashes.map(data => data.County);
+    var city = crashes.map(data => data.city);
+    var county = crashes.map(data => data.county);
     //var state = crashes.map(data => data.State);
-    var weather = crashes.map(data => data.Weather_Condition);
-    var day_night = crashes.map(data => data.Civil_Twilight);
-    var time = crashes.map(data => data.Start_Time);
+    var weather = crashes.map(data => data.weather_condition);
+    var day_night = crashes.map(data => data.civil_twilight);
+    var time = crashes.map(data => data.start_time);
 
     // console.log(lat);
     // console.log(lng);
@@ -142,17 +142,20 @@ var queryUrl = "http://127.0.0.1:5000/crashes"
       //console.log(crashSeverity);
       // Update the crash count
       crashCount[crashSeverity]++;
-      // Create a new marker with the appropriate icon and coordinates
+      //Create a new marker with the appropriate icon and coordinates
       var newMarker = L.marker([lat[i],lng[i]], {
         icon: icons[crashSeverity]
         
       });
+      // newMarker = L.marker([lat[i], lng[i]]).addTo(map).bounce();
 
       // Add the new marker to the appropriate layer
       newMarker.addTo(layers[crashSeverity]);
 
+      //newMarker = L.marker([lat[i], lng[i]]).addTo(map).bounce();
+
       // Bind a popup to the marker that will  display on click. This will be rendered as HTML
-      newMarker.bindPopup ("Details <br>" + "City: " + city[i] + "<br> Weather Conditions: " + weather[i] + "<br>" + "Time: " + time[i]);
+      newMarker.bindPopup ("Details: <br>" + "City: " + city[i] + "<br> Weather Conditions: " + weather[i] + "<br>" + "Date/Time: " + time[i]);
       
     }
 
