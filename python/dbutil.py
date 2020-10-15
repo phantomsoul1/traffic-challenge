@@ -33,7 +33,7 @@ def dict_factory(cursor, row):
 
 # get all crashes in the database
 def get_all_crashes(conn):
-    return get_crashes(conn, None, None)
+    return get_crashes(conn, "", "")
 
 def get_crashes(conn, county, month):
     """

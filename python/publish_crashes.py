@@ -91,5 +91,38 @@ def refresh():
     # redirect to crashes to show the result
     return redirect(url_for('crashes', county = county, month = month))
 
+@app.route('/all')
+def all():
+
+    # get the path to the crashes database
+    # (pwd_path enables python to find files within this project)
+    pwd_path = os.path.abspath(os.path.dirname(__file__))
+    db_path = os.path.join(pwd_path, '../db/crashes.db')
+    
+    # define a connection variable
+    conn = None
+
+    try:
+
+        # connect to sqllite
+        conn = dbutil.connect(db_path)
+
+        # get all crashes from sqlite
+        crash_list = dbutil.get_all_crashes(conn)
+
+    except Error as e:
+
+        # if there's an error, show it
+        print(e)
+    finally:
+
+        # if a connection is defined, close it
+        if (conn):
+            conn.close()
+
+    # redirect to crashes to show the result
+    return Response(json.dumps(crash_list),  mimetype='application/json')
+
+
 if __name__ == '__main__':
     app.run()
