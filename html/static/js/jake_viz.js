@@ -32,7 +32,7 @@ function createCharts(myId) {
   var atlantic = [];
 
 counties.forEach(function(county){
-  sum += county;
+  //sum += county;
 
   if (county === "Cape May") {
     capeMay.push(county);
@@ -169,15 +169,22 @@ var numAtlantic = atlantic.length;
 
   console.log(countyLengths); 
 
+  var set = new Set(counties);
+  console.log(counties);
 
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  var unique = counties.filter(onlyUnique);
+  console.log(unique);
 
   var bubbleTrace = {
-    x: counties,
+    x: unique,
     y: countyLengths,
     mode: 'markers',
     marker: {
       size: countyLengths,
-      color: counties,
+      color: unique,
       colorscale: "Bluered"
     }
     };
