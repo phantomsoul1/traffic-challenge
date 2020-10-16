@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title> Data Visualization </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+
+</head> 
+<body>
+  
+  <!--Navbar BootStrap Format-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class='container'>
+        <a class="navbar-brand" href="index.html">U.S. Traffic Accident Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <!-- Setting link for Intro Page-->
+              <a class="nav-link" href="index.html">Introduction Page</a>
+            </li>
+            <!--Setting link for Data Viz page-->
+            <li class="nav-item">
+                <a class="nav-link" href="dataViz.html">Data Visualizations</a>
+            </li>
+            <!--Setting link for dataset page-->
+            <li class="nav-item">
+                <a class="nav-link" href="dataTable.html">Data Table</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!--Setting Header content for page in container-->
+      <div class="jumbotron">
+        <h1 class="display-4">Group 6: U.S. Traffic Accident Project</h1>
+        <p class="lead">Group Members: Jake Byford, George Hyros, Robert Peron, Michael Seifer, Narender Sharma</p>
+        <hr class="my-4">
+          <div class="col-md-8">
+           <p>This project is to explore the 2019 U.S. Traffic Accident Data through various Data Visualizations. Using the dataset provided by Kaggle.com, we explored different trends and relationships in the U.S. Traffic Accidents dataset.
+           <br><br> This site provides an Introduction Page for our team's project, as well as the Data Visualizations and a table of the actual dataset.  </p>
+           <hr>
+           <p>Please use the navbar above to access the different pages on the site for the project. </p>
+          </div>
+      </div>
+</body>
+<body>
+  <svg width="1000" height="500"></svg>
+  <div>
+    <script src="static/js/rob_viz.js"></script>
+  </div>
+</body>
+</html>
