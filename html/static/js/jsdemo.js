@@ -52,29 +52,31 @@ function bodyLoaded() {
                 // add the option to the dropdown (select) element
                 select.add(option);
             });
-
-            var months = Array.from({length: 12}, (e, i) => {
-                return new Date(null, i + 1, null).toLocaleDateString("en", {month: "long"});
-            });
-            
-            // gets a reference the counties dropdown (select) element
-            select = document.getElementById("months");
-            options = select.options;
-
-            // for each county in the counties list, add it as an option to the list
-            months.forEach(function(item, index) {
-                
-                // create a new option element
-                var option = document.createElement("option");
-                
-                // set its value to the lowercased county name (to help make it case insensitive)
-                option.value = item.toLowerCase();
-                
-                // set the text (displayed on screen) to the county name
-                option.text = item;
-                
-                // add the option to the dropdown (select) element
-                select.add(option);
-            });
         });
+
+        // gets a list of month names by taking a counting array of 1-12 and getting each number's localized full month name
+        var months = Array.from({length: 12}, (e, i) => {
+            return new Date(null, i + 1, null).toLocaleDateString("en", {month: "long"});
+        });
+        
+        // gets a reference the counties dropdown (select) element
+        select = document.getElementById("months");
+        options = select.options;
+
+        // for each county in the counties list, add it as an option to the list
+        months.forEach(function(item, index) {
+            
+            // create a new option element
+            var option = document.createElement("option");
+            
+            // set its value to the lowercased county name (to help make it case insensitive)
+            option.value = item.toLowerCase();
+            
+            // set the text (displayed on screen) to the county name
+            option.text = item;
+            
+            // add the option to the dropdown (select) element
+            select.add(option);
+        });
+
 }
