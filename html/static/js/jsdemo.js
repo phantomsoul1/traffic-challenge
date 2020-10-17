@@ -2,6 +2,34 @@ var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMj
 var njmap;
 var markerGroup;
 
+var icons = [
+    L.ExtraMarkers.icon({
+        icon: "ion-android-car",
+        iconColor: "white",
+        markerColor: "green",
+        shape: "circle"
+    }),
+    L.ExtraMarkers.icon({
+        icon: "ion-android-car",
+        iconColor: "white",
+        markerColor: "orange",
+        shape: "circle"
+    }),
+    L.ExtraMarkers.icon({
+        icon: "ion-android-car",
+        iconColor: "white",
+        markerColor: "red",
+        shape: "circle",
+        //iconSize: [400, 900]
+    }),
+    L.ExtraMarkers.icon({
+        icon: "ion-android-car",
+        iconColor: "white",
+        markerColor: "black",
+        shape: "circle"
+    })
+];
+
 function countyChanged() {
     url = buildURL();
     
@@ -137,9 +165,16 @@ function updateMarkers(crashes) {
         markerGroup.clearLayers();
 
         crashes.forEach(crash => {
-            L.marker([crash.start_lat, crash.start_lng]).addTo(markerGroup);
+            var severity = parseInt(crash.severity, 10);
+            var icon = icons[severity - 1];
+
+            L.marker([crash.start_lat, crash.start_lng], {
+                icon: icon
+            }).addTo(markerGroup);
         });
 
         njmap.fitBounds(markerGroup.getBounds());
     }
+
+    console.log("Done.");
 }
