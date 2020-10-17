@@ -1,5 +1,5 @@
 function createCharts(myChart) {
-  d3.json("http://127.0.0.1:5000/crashes").then(function(data) {
+  d3.json("http://127.0.0.1:5000/all").then(function(data) {
   console.log(data);
   
   var crashes = data;
@@ -185,6 +185,9 @@ var numAtlantic = atlantic.length;
     mode: 'markers',
     marker: {
       size: countyLengths,
+      //setting 'sizeref' to less than 1, increases the rendered marker sizes
+      sizeref: 0.2,
+      sizemode: 'area',
       color: unique,
       colorscale: "Bluered"
     }
