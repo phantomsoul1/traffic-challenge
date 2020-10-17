@@ -1,6 +1,6 @@
 var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMjc1OWU2MyJ9.3q0uTnkUZT618c4IH31CkQ";
 var njmap;
-var markerLayerGroup;
+var markerGroup;
 
 function countyChanged() {
     url = buildURL();
@@ -81,7 +81,7 @@ function bodyLoaded() {
     });
 
     // create a map object in the page's mapblock element
-    njmap = L.map('mapblock').setView([40.07, -74.558333], 8);
+    njmap = L.map('mapblock'); //.setView([40.07, -74.558333], 8);
 
     // create and add a mapbox street tile layer to the map
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -93,7 +93,7 @@ function bodyLoaded() {
         accessToken: accessToken
     }).addTo(njmap);
 
-    markerLayerGroup = L.layerGroup().addTo(njmap);
+    markerGroup = L.featureGroup().addTo(njmap);
 
     d3.json(buildURL(), (crashes) => {
         updateMarkers(crashes);
@@ -133,14 +133,13 @@ function buildURL() {
 function updateMarkers(crashes) {
     console.log(crashes[0]);
 
-    if (markerLayerGroup) {
-        markerLayerGroup.clearLayers();
+    if (markerGroup) {
+        markerGroup.clearLayers();
 
         crashes.forEach(crash => {
-            L.marker([crash.start_lat, crash.start_lng]).addTo(markerLayerGroup);
+            L.marker([crash.start_lat, crash.start_lng]).addTo(markerGroup);
         });
 
-        //console.log(markerLayerGroup.getBounds());
-        //njmap.fitBounds(markerLayerGroup.getBounds());
+        njmap.fitBounds(markerGroup.getBounds());
     }
 }
