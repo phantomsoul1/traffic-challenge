@@ -1,12 +1,12 @@
 var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMjc1OWU2MyJ9.3q0uTnkUZT618c4IH31CkQ";
 var njmap;
-var markerLayer;
+var markerLayerGroup;
 
 function countyChanged() {
     url = buildURL();
     
     console.log(url);
-    d3.json(buildURL(), (crahses) => {
+    d3.json(buildURL(), (crashes) => {
         updateMarkers(crashes);
     });
 }
@@ -15,12 +15,13 @@ function monthChanged() {
     url = buildURL();
     
     console.log(url);
-    d3.json(buildURL(), (crahses) => {
-        updateMarkers(crahses);
+    d3.json(buildURL(), (crashes) => {
+        updateMarkers(crashes);
     });
 }
 
 function bodyLoaded() {
+
     // load data from the api
     d3.json("http://127.0.0.1:5000/all", (crashes) => {
 
@@ -70,7 +71,7 @@ function bodyLoaded() {
         var option = document.createElement("option");
         
         // set its value to the lowercased county name (to help make it case insensitive)
-        option.value = item.toLowerCase();
+        option.value = index + 1;
         
         // set the text (displayed on screen) to the county name
         option.text = item;
@@ -93,6 +94,10 @@ function bodyLoaded() {
     }).addTo(njmap);
 
     markerLayerGroup = L.layerGroup().addTo(njmap);
+
+    d3.json(buildURL(), (crashes) => {
+        updateMarkers(crashes);
+    })
 }
 
 function buildURL() {
@@ -126,11 +131,16 @@ function buildURL() {
 }
 
 function updateMarkers(crashes) {
+    console.log(crashes[0]);
+
     if (markerLayerGroup) {
         markerLayerGroup.clearLayers();
 
         crashes.forEach(crash => {
-            
+            L.marker([crash.start_lat, crash.start_lng]).addTo(markerLayerGroup);
         });
+
+        //console.log(markerLayerGroup.getBounds());
+        //njmap.fitBounds(markerLayerGroup.getBounds());
     }
 }
