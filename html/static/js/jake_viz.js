@@ -1,4 +1,4 @@
-function createCharts(myId) {
+function createCharts(myChart) {
   d3.json("http://127.0.0.1:5000/crashes").then(function(data) {
   console.log(data);
   
@@ -7,7 +7,7 @@ function createCharts(myId) {
   var counties = crashes.map(object => object.county);
   console.log(counties);
 
-  var sum = 0;
+  //var sum = 0;
   
   var capeMay = [];
   var mercer = [];
