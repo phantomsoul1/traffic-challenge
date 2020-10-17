@@ -1,9 +1,23 @@
+var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMjc1OWU2MyJ9.3q0uTnkUZT618c4IH31CkQ";
+var njmap;
+var markerLayer;
+
 function countyChanged() {
-    console.log(buildURL());
+    url = buildURL();
+    
+    console.log(url);
+    d3.json(buildURL(), (crahses) => {
+        updateMarkers(crashes);
+    });
 }
 
 function monthChanged() {
-    console.log(buildURL());
+    url = buildURL();
+    
+    console.log(url);
+    d3.json(buildURL(), (crahses) => {
+        updateMarkers(crahses);
+    });
 }
 
 function bodyLoaded() {
@@ -64,6 +78,21 @@ function bodyLoaded() {
         // add the option to the dropdown (select) element
         select.add(option);
     });
+
+    // create a map object in the page's mapblock element
+    njmap = L.map('mapblock').setView([40.07, -74.558333], 8);
+
+    // create and add a mapbox street tile layer to the map
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: accessToken
+    }).addTo(njmap);
+
+    markerLayerGroup = L.layerGroup().addTo(njmap);
 }
 
 function buildURL() {
@@ -94,4 +123,14 @@ function buildURL() {
     }
 
     return base_url + query;
+}
+
+function updateMarkers(crashes) {
+    if (markerLayerGroup) {
+        markerLayerGroup.clearLayers();
+
+        crashes.forEach(crash => {
+            
+        });
+    }
 }
