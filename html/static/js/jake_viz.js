@@ -176,6 +176,7 @@ var numAtlantic = atlantic.length;
     return self.indexOf(value) === index;
   }
   var unique = counties.filter(onlyUnique);
+  var unique = unique.sort();
   console.log(unique);
 
   var bubbleTrace = {
@@ -192,7 +193,9 @@ var numAtlantic = atlantic.length;
   var bubbleData = [bubbleTrace];
 
   var bubbleLayout = {
-    title: "Bubble Chart"
+    title: "Car Accidents by County",
+    xaxis: { title: "Counties"},
+    yaxis: { title: "Frequency"}
   };
 
   Plotly.newPlot("myDiv", bubbleData, bubbleLayout);
