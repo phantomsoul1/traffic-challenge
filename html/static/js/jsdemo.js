@@ -1,22 +1,9 @@
 function countyChanged() {
-
-    // get a reference to the counties dropdown (select)
-    var county = document.getElementById("counties");
-
-    // get the selected value out of the dropdown (select)
-    var selectedValue = county.options[county.selectedIndex].value;
-    
-    console.log(selectedValue);
+    console.log(buildURL());
 }
 
 function monthChanged() {
-    // get a reference to the month dropdown (select)
-    var month = document.getElementById("months");
-
-    // get the selected value out of the dropdown (select)
-    var selectedValue = month.options[month.selectedIndex].value;
-    
-    console.log(selectedValue);
+    console.log(buildURL());
 }
 
 function bodyLoaded() {
@@ -77,5 +64,34 @@ function bodyLoaded() {
         // add the option to the dropdown (select) element
         select.add(option);
     });
+}
 
+function buildURL() {
+
+    // get a reference to the counties dropdown (select)
+    var element = document.getElementById("counties");
+
+    // get the selected value out of the dropdown (select)
+    var county = element.options[element.selectedIndex].value;
+
+    // get a reference to the month dropdown (select)
+    element = document.getElementById("months");
+
+    // get the selected value out of the dropdown (select)
+    var month = element.options[element.selectedIndex].value;
+
+    base_url = "http://127.0.0.1:5000";
+    query = "";
+
+    if (county != "") {
+        query += query.length == 0 ? "?" : "&";
+        query += `county=${county}`;
+    }
+
+    if (month != "") {
+        query += query.length == 0 ? "?" : "&";
+        query += `month=${month}`;
+    }
+
+    return base_url + query;
 }
