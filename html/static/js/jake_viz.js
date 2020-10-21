@@ -207,3 +207,5 @@ var numAtlantic = atlantic.length;
   
 }
 createCharts();
+// When the browser window is resized, responsify() is called.
+d3.select(window).on("resize", createCharts);
