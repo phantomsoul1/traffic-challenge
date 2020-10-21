@@ -196,7 +196,7 @@ var numAtlantic = atlantic.length;
   var bubbleData = [bubbleTrace];
 
   var bubbleLayout = {
-    title: "Car Accidents by County",
+    title: "Traffic Accidents by NJ Counties (2019)",
     xaxis: { title: "Counties"},
     yaxis: { title: "Frequency"}
   };
