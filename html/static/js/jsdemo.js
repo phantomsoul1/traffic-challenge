@@ -2,33 +2,7 @@ var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMj
 var njmap;
 var markerGroup;
 
-var icons = [
-    L.ExtraMarkers.icon({
-        icon: "ion-android-car",
-        iconColor: "white",
-        markerColor: "green",
-        shape: "circle"
-    }),
-    L.ExtraMarkers.icon({
-        icon: "ion-android-car",
-        iconColor: "white",
-        markerColor: "orange",
-        shape: "circle"
-    }),
-    L.ExtraMarkers.icon({
-        icon: "ion-android-car",
-        iconColor: "white",
-        markerColor: "red",
-        shape: "circle",
-        //iconSize: [400, 900]
-    }),
-    L.ExtraMarkers.icon({
-        icon: "ion-android-car",
-        iconColor: "white",
-        markerColor: "black",
-        shape: "circle"
-    })
-];
+var icons;
 
 function countyChanged() {
     url = buildURL();
@@ -49,6 +23,34 @@ function monthChanged() {
 }
 
 function bodyLoaded() {
+
+    icons = [
+        L.ExtraMarkers.icon({
+            icon: "ion-android-car",
+            iconColor: "white",
+            markerColor: "green",
+            shape: "circle"
+        }),
+        L.ExtraMarkers.icon({
+            icon: "ion-android-car",
+            iconColor: "white",
+            markerColor: "orange",
+            shape: "circle"
+        }),
+        L.ExtraMarkers.icon({
+            icon: "ion-android-car",
+            iconColor: "white",
+            markerColor: "red",
+            shape: "circle",
+            //iconSize: [400, 900]
+        }),
+        L.ExtraMarkers.icon({
+            icon: "ion-android-car",
+            iconColor: "white",
+            markerColor: "black",
+            shape: "circle"
+        })
+    ];
 
     // load data from the api
     d3.json("http://127.0.0.1:5000/all", (crashes) => {
