@@ -1,13 +1,13 @@
 // Define SVG area dimensions
-var svgWidth = 1100;
-var svgHeight = 700;
+var svgWidth = 1400;
+var svgHeight = 600;
 
 // Define the chart's margins as an object
 var chartMargin = {
     top: 30,
     right: 30,
     bottom: 30,
-    left: 40
+    left: 100
   };
 
 // Define dimensions of the chart area
@@ -187,10 +187,11 @@ var xBandScale = d3.scaleBand()
     .attr("transform", `translate(0, ${chartHeight})`)
     .call(bottomAxis);
 
-
+  var toolTip = d3.select("body").append("div")
+    .attr("class", "tooltip");
   // Create one SVG rectangle per piece of tvData
   // Use the linear and band scales to position each rectangle within the chart
-  chartGroup.selectAll(".bar")
+chartGroup.selectAll(".bar")
     .data(conditionArr)
     .enter()
     .append("rect")
@@ -199,6 +200,26 @@ var xBandScale = d3.scaleBand()
     .attr("y", d => yLinearScale(d.Count))
     .attr("width", xBandScale.bandwidth())
     .attr("height", d => chartHeight - yLinearScale(d.Count));
-  
+
+  svg.append("text")
+    .attr("x", (chartWidth / 2))             
+    .attr("y", (chartHeight /20))
+    .attr("text-anchor", "middle")  
+    .style("font-size", "32px") 
+    .style("text-decoration", "underline")  
+    .text("Frequency of Traffic Accidents Across Weather Conditions");
+  svg.append("text")
+    .attr("x", chartWidth / 2)
+    .attr("y", -chartHeight + 1170)
+    .attr('text-anchor', 'middle')
+    .text('Weather Conditions')
+    .style("font-size", "24px")
+  svg.append("text")
+    .attr(rotate)
+    .attr("x", -chartWidth + 1000)
+    .attr("y", chartHeight/2)
+    .attr('text-anchor', 'middle')
+    .text('Traffic Accident Total (Count)')
+    .style("font-size", "24px")
 })
 

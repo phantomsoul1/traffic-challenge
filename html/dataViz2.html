@@ -7,11 +7,9 @@
   
   <title> Data Visualization </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="static/css/bar.css"></script>
+  <link rel="stylesheet" href=static/css/bar.css></link>
 
 </head> 
 <body>
@@ -46,15 +44,18 @@
         <p class="lead">Group Members: Jake Byford, George Hyros, Robert Peron, Michael Seifer, Narender Sharma</p>
         <hr class="my-4">
           <div class="col-md-8">
-           <p>This project is to explore the 2019 U.S. Traffic Accident Data through various Data Visualizations. Using the dataset provided by Kaggle.com, we explored different trends and relationships in the U.S. Traffic Accidents dataset.
-           <br><br> This site provides an Introduction Page for our team's project, as well as the Data Visualizations and a table of the actual dataset.  </p>
-           <hr>
-           <p>Please use the navbar above to access the different pages on the site for the project. </p>
           </div>
       </div>
 </body>
 <body>
+  <div id="layout">
+    <div id="container">
+      <svg></svg>
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     <script src="static/js/rob_viz.js"></script>
+  </div>
+  </div>
+    
 </body>
 </html>
