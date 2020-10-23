@@ -1,8 +1,10 @@
 var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMjc1OWU2MyJ9.3q0uTnkUZT618c4IH31CkQ";
+var icons;
+var layers;
 var njmap;
 var markerGroup;
 
-var icons;
+
 
 function countyChanged() {
     url = buildURL();
@@ -110,24 +112,86 @@ function bodyLoaded() {
         select.add(option);
     });
 
+    njmap = L.map('mapblock').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: accessToken
+}).addTo(njmap);
+
+    // layers = [
+    //     new L.LayerGroup(), // fender bender
+    //     new L.LayerGroup(), // moderate
+    //     new L.LayerGroup(), // bad
+    //     new L.LayerGroup()  // fatal
+    // ];
+
+    // var mburl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accesstoken}';
+    // var mbattr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    // '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    // 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+
+    // var grayscale = L.tileLayer(mburl, {
+    //     id: 'mapbox/light-v9',
+    //     tileSize: 512,
+    //     zoomOffset: -1,
+    //     attribution: mbattr,
+    //     accesstoken: accessToken
+    // });
+    // var streets = L.tileLayer(mburl, {
+    //     id: 'mapbox/streets-v11',
+    //     tileSize: 512,
+    //     zoomOffset: -1,
+    //     attribution: mbattr,
+    //     accesstoken: accessToken
+    // });
+
     // create a map object in the page's mapblock element
-    njmap = L.map('mapblock'); //.setView([40.07, -74.558333], 8);
+    // njmap = L.map('mapblock', {layers: [grayscale, layers[0]]});
+    // njmap = L.map('mapblock');
+    // streets.addTo(njmap);
+
+    // var baselayers = {
+    //     'Grayscale': grayscale,
+    //     'Streets': streets
+    // };
+    // var overlays = {
+    //     'Fender-Benders': layers[0],
+    //     'Moderate': layers[1],
+    //     'Bad': layers[2],
+    //     'Fatal': layers[3]
+    // }
 
     // create and add a mapbox street tile layer to the map
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: accessToken
-    }).addTo(njmap);
+    // var basemap = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    //     maxZoom: 18,
+    //     id: 'mapbox/streets-v11',
+    //     tileSize: 512,
+    //     zoomOffset: -1,
+    //     accessToken: accessToken
+    // });
+    // basemap.addTo(njmap);
 
-    markerGroup = L.featureGroup().addTo(njmap);
+    //markerGroup = L.featureGroup().addTo(njmap);
 
-    d3.json(buildURL(), (crashes) => {
-        updateMarkers(crashes);
-    })
+    // L.control.layers(baselayers, overlays).addTo(njmap);
+
+    // var info = L.control({
+    //     position: "bottomright"
+    // });
+    // info.onAdd = function() {
+    //     return L.DomUtil.create("div", "legend");
+    // };
+    // info.addTo(njmap);
+
+    // d3.json(buildURL(), (crashes) => {
+    //     updateMarkers(crashes);
+    // });
 }
 
 function buildURL() {
@@ -161,22 +225,44 @@ function buildURL() {
 }
 
 function updateMarkers(crashes) {
-    console.log(crashes[0]);
+    // console.log(crashes[0]);
 
-    if (markerGroup) {
-        markerGroup.clearLayers();
+    // if (layers) {
+    //     layers.forEach((group) => group.clearLayers());
 
-        crashes.forEach(crash => {
-            var severity = parseInt(crash.severity, 10);
-            var icon = icons[severity - 1];
+    //     var crashCount = [0, 0, 0, 0];
 
-            L.marker([crash.start_lat, crash.start_lng], {
-                icon: icon
-            }).addTo(markerGroup);
-        });
+    //     crashes.forEach(crash => {
+    //         var lat = crash.start_lat;
+    //         var lng = crash.start_lng;
+    //         var city = crash.city;
+    //         var county = crash.county;
+    //         var severity = parseInt(crash.severity, 10);
+    //         var sindex = severity - 1;
+    //         var icon = icons[sindex];
+    //         var weather = crash.weather_condition;
+    //         var isday = crash.civil_twilight;
+    //         var time = crash.start_time;
 
-        njmap.fitBounds(markerGroup.getBounds());
-    }
+    //         crashCount[sindex]++;
 
-    console.log("Done.");
+    //         L.marker([lat, lng], {
+    //             icon: icon
+    //         }).bindPopup(`<b>Details:</b><br>City:${city}<br>Weather Conditions: ${weather}<br>Date/Time: ${time}`)
+    //             .addTo(layers[sindex]);
+    //     });
+
+    //     document.querySelector(".legend").innerHTML = [
+    //         //"<p>Updated: " + moment.unix(time).format("h:mm:ss A") + "</p>",
+    //         "<p class='fender_bender'>Fender Bender: " + crashCount[0] + "</p>",
+    //         "<p class='moderate'>Moderate: " + crashCount[1] + "</p>",
+    //         "<p class='bad'>Bad: " + crashCount[2] + "</p>",
+    //         "<p class='fatal'>Fatal: " + crashCount[3] + "</p>"
+            
+    //       ].join("");
+
+    //     //njmap.fitBounds(layers.getBounds());
+    // }
+
+    // console.log("Done.");
 }
