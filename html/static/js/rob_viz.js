@@ -162,7 +162,8 @@ var numHeavyRain = heavyRain.length;
 
     ]
 console.log(conditionArr);
-var xBandScale = d3.scaleBand()
+
+  var xBandScale = d3.scaleBand()
     .domain(conditionArr.map(d => d.Condition))
     .range([0, chartWidth])
     .padding(0.2);
@@ -187,11 +188,10 @@ var xBandScale = d3.scaleBand()
     .attr("transform", `translate(0, ${chartHeight})`)
     .call(bottomAxis);
 
-  var toolTip = d3.select("body").append("div")
-    .attr("class", "tooltip");
+  
   // Create one SVG rectangle per piece of tvData
   // Use the linear and band scales to position each rectangle within the chart
-chartGroup.selectAll(".bar")
+  var barGroups = chartGroup.selectAll(".bar")
     .data(conditionArr)
     .enter()
     .append("rect")
@@ -201,6 +201,15 @@ chartGroup.selectAll(".bar")
     .attr("width", xBandScale.bandwidth())
     .attr("height", d => chartHeight - yLinearScale(d.Count));
 
+  barGroups.on("mouseover", function(d, i){
+    toolTip.style("display","block");
+    toolTip.html(`<p> Total Accidents: ${conditionArr[i]}</p>`)
+      .style("left", d3.event.pageX + "px")
+      .style("top", d3.event.pageY + "px");
+  })
+    .on("mouseout", function(){
+      toolTip.style("display", "none");
+    });
   svg.append("text")
     .attr("x", (chartWidth / 2))             
     .attr("y", (chartHeight /20))
@@ -208,6 +217,7 @@ chartGroup.selectAll(".bar")
     .style("font-size", "32px") 
     .style("text-decoration", "underline")  
     .text("Frequency of Traffic Accidents Across Weather Conditions");
+
   svg.append("text")
     .attr("x", chartWidth / 2)
     .attr("y", -chartHeight + 1170)
@@ -221,5 +231,8 @@ chartGroup.selectAll(".bar")
     .attr('text-anchor', 'middle')
     .text('Traffic Accident Total (Count)')
     .style("font-size", "24px")
-})
+});
+
+
+
 
