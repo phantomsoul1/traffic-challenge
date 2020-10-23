@@ -30,15 +30,16 @@ svg {
   fill: #cbb780;
 }
 text {
-  font-size: 16px;
+  font-size: 12px;
   fill: rgb(0, 0, 0);
 }
 text.value {
   font-size: 14px;
 }
 .tooltip {
-  display: none;
-  position: absolute;
+  display: block;
+  color: black;
+  position: relative;
   width: 80px;
   height: 30px;
   padding: 2px;
