@@ -14,15 +14,15 @@
   opacity: 0.3;
 }
 
+.table {
+  background-color:grey;
 
+}
 
 
 a.navbar-brand {margin-left: 10px;
     padding:10px;
     /* background-color:grey; */
-
-
-
 }
 
 @media (max-width: 600px) {
@@ -52,4 +52,10 @@ background-color:white;
 
 }
 
-
+th{
+  text-align:center;
+  font-size: 20px;
+}
+td{
+  text-align:center;
+}
