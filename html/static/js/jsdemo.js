@@ -147,6 +147,9 @@ function buildURL() {
         query += `month=${month}`;
     }
 
+    if (query == "") {
+        query = "all";
+    }
     return BASE_URL + query;
 }
 
@@ -241,17 +244,23 @@ function updateMarkers(crashes) {
             
         ].join("");
 
-        var bounds;
-        layers.forEach(layer => {
-            if (njmap.hasLayer(layer)) {
-                var lbounds = layer.getBounds();
-                if (!bounds || bounds < lbounds) {
-                    bounds = lbounds;
-                }
-            }
-        });
-        njmap.fitBounds(bounds);
+        // var bounds;
+        // layers.forEach(layer => {
+        //     if (njmap.hasLayer(layer)) {
+        //         var lbounds = layer.getBounds();
+        //         if (!bounds || bounds < lbounds) {
+        //             bounds = lbounds;
+        //         }
+        //     }
+        // });
+        // njmap.fitBounds(bounds);
     }
 
     console.log("Done.");
+}
+
+function getMaxBounds(layers) {
+    var bounds;
+
+    return bounds;
 }
