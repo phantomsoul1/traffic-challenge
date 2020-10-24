@@ -1,3 +1,4 @@
 // API key
-const API_KEY = "pk.eyJ1IjoibWlrZXNlaWZlciIsImEiOiJja2ZvbzlvdW8wM2J1MnpydjRzanh0dDdnIn0.1q3HSfXIwhfsfmoPz-HB0Q"
+const API_KEY = "ADD KEY HERE";
+const BASE_URL = 'https://phantomsoul-traffic-challenge.herokuapp.com/';
 
