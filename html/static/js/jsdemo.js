@@ -1,16 +1,13 @@
-var accessToken = "pk.eyJ1IjoicGhhbnRvbXNvdWwiLCJhIjoiY2tmcHl4eXA1MGZ0djJyczlqMjc1OWU2MyJ9.3q0uTnkUZT618c4IH31CkQ";
 var icons;
 var layers;
 var njmap;
 var markerGroup;
 
-
-
 function countyChanged() {
     url = buildURL();
     
     console.log(url);
-    d3.json(buildURL(), (crashes) => {
+    d3.json(url).then((crashes) => {
         updateMarkers(crashes);
     });
 }
@@ -19,7 +16,7 @@ function monthChanged() {
     url = buildURL();
     
     console.log(url);
-    d3.json(buildURL(), (crashes) => {
+    d3.json(url).then((crashes) => {
         updateMarkers(crashes);
     });
 }
@@ -54,8 +51,13 @@ function bodyLoaded() {
         })
     ];
 
+    initMapDisplay();
+
     // load data from the api
-    d3.json("http://127.0.0.1:5000/all", (crashes) => {
+    console.log(BASE_URL);
+    var url = `${BASE_URL}all`;
+    console.log(url);
+    d3.json(url).then((crashes) => {
 
         // maps api result to just counties
         var counties = crashes.map(c => c.county);
@@ -85,6 +87,8 @@ function bodyLoaded() {
             // add the option to the dropdown (select) element
             select.add(option);
         });
+
+        updateMarkers(crashes);
     });
 
     // gets a list of month names by taking a counting array of 1-12 and getting each number's localized full month name
@@ -112,83 +116,6 @@ function bodyLoaded() {
         select.add(option);
     });
 
-    njmap = L.map('mapblock').setView([51.505, -0.09], 13);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: accessToken
-}).addTo(njmap);
-
-    // layers = [
-    //     new L.LayerGroup(), // fender bender
-    //     new L.LayerGroup(), // moderate
-    //     new L.LayerGroup(), // bad
-    //     new L.LayerGroup()  // fatal
-    // ];
-
-    // var mburl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accesstoken}';
-    // var mbattr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-    // '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    // 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
-
-    // var grayscale = L.tileLayer(mburl, {
-    //     id: 'mapbox/light-v9',
-    //     tileSize: 512,
-    //     zoomOffset: -1,
-    //     attribution: mbattr,
-    //     accesstoken: accessToken
-    // });
-    // var streets = L.tileLayer(mburl, {
-    //     id: 'mapbox/streets-v11',
-    //     tileSize: 512,
-    //     zoomOffset: -1,
-    //     attribution: mbattr,
-    //     accesstoken: accessToken
-    // });
-
-    // create a map object in the page's mapblock element
-    // njmap = L.map('mapblock', {layers: [grayscale, layers[0]]});
-    // njmap = L.map('mapblock');
-    // streets.addTo(njmap);
-
-    // var baselayers = {
-    //     'Grayscale': grayscale,
-    //     'Streets': streets
-    // };
-    // var overlays = {
-    //     'Fender-Benders': layers[0],
-    //     'Moderate': layers[1],
-    //     'Bad': layers[2],
-    //     'Fatal': layers[3]
-    // }
-
-    // create and add a mapbox street tile layer to the map
-    // var basemap = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    //     maxZoom: 18,
-    //     id: 'mapbox/streets-v11',
-    //     tileSize: 512,
-    //     zoomOffset: -1,
-    //     accessToken: accessToken
-    // });
-    // basemap.addTo(njmap);
-
-    //markerGroup = L.featureGroup().addTo(njmap);
-
-    // L.control.layers(baselayers, overlays).addTo(njmap);
-
-    // var info = L.control({
-    //     position: "bottomright"
-    // });
-    // info.onAdd = function() {
-    //     return L.DomUtil.create("div", "legend");
-    // };
-    // info.addTo(njmap);
-
     // d3.json(buildURL(), (crashes) => {
     //     updateMarkers(crashes);
     // });
@@ -208,7 +135,6 @@ function buildURL() {
     // get the selected value out of the dropdown (select)
     var month = element.options[element.selectedIndex].value;
 
-    base_url = "http://127.0.0.1:5000";
     query = "";
 
     if (county != "") {
@@ -221,48 +147,111 @@ function buildURL() {
         query += `month=${month}`;
     }
 
-    return base_url + query;
+    return BASE_URL + query;
+}
+
+function initMapDisplay() {
+    
+    layers = [
+        new L.FeatureGroup(), // fender bender
+        new L.FeatureGroup(), // moderate
+        new L.FeatureGroup(), // bad
+        new L.FeatureGroup()  // fatal
+    ];
+
+    var mburl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accesstoken}';
+    var mbattr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+
+    var grayscale = L.tileLayer(mburl, {
+        id: 'mapbox/light-v9',
+        tileSize: 512,
+        zoomOffset: -1,
+        attribution: mbattr,
+        accesstoken: API_KEY
+    });
+    var streets = L.tileLayer(mburl, {
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        attribution: mbattr,
+        accesstoken: API_KEY
+    });
+
+    var baselayers = {
+        'Grayscale': grayscale,
+        'Streets': streets
+    };
+    var overlays = {
+        'Fender-Benders': layers[0],
+        'Moderate': layers[1],
+        'Bad': layers[2],
+        'Fatal': layers[3]
+    }
+
+    njmap = L.map('mapblock', {layers: [grayscale, layers[0]]}).setView([40.0583, -74.4057], 8);
+    L.control.layers(baselayers, overlays).addTo(njmap);
+
+    var info = L.control({
+        position: "bottomright"
+    });
+    info.onAdd = function() {
+        return L.DomUtil.create("div", "legend");
+    };
+    info.addTo(njmap);
 }
 
 function updateMarkers(crashes) {
-    // console.log(crashes[0]);
+    console.log(crashes[0]);
 
-    // if (layers) {
-    //     layers.forEach((group) => group.clearLayers());
+    if (layers) {
+        layers.forEach(layer => {
+            layer.clearLayers()
+        });
 
-    //     var crashCount = [0, 0, 0, 0];
+        var crashCount = [0, 0, 0, 0];
 
-    //     crashes.forEach(crash => {
-    //         var lat = crash.start_lat;
-    //         var lng = crash.start_lng;
-    //         var city = crash.city;
-    //         var county = crash.county;
-    //         var severity = parseInt(crash.severity, 10);
-    //         var sindex = severity - 1;
-    //         var icon = icons[sindex];
-    //         var weather = crash.weather_condition;
-    //         var isday = crash.civil_twilight;
-    //         var time = crash.start_time;
+        crashes.forEach(crash => {
+            var lat = crash.start_lat;
+            var lng = crash.start_lng;
+            var city = crash.city;
+            var county = crash.county;
+            var severity = parseInt(crash.severity, 10);
+            var sindex = severity - 1;
+            var icon = icons[sindex];
+            var weather = crash.weather_condition;
+            var isday = crash.civil_twilight;
+            var time = crash.start_time;
 
-    //         crashCount[sindex]++;
+            crashCount[sindex]++;
 
-    //         L.marker([lat, lng], {
-    //             icon: icon
-    //         }).bindPopup(`<b>Details:</b><br>City:${city}<br>Weather Conditions: ${weather}<br>Date/Time: ${time}`)
-    //             .addTo(layers[sindex]);
-    //     });
+            L.marker([lat, lng], {
+                icon: icon
+            }).bindPopup(`<b>Details:</b><br>City:${city}<br>Weather Conditions: ${weather}<br>Date/Time: ${time}`)
+                .addTo(layers[sindex]);
+        });
 
-    //     document.querySelector(".legend").innerHTML = [
-    //         //"<p>Updated: " + moment.unix(time).format("h:mm:ss A") + "</p>",
-    //         "<p class='fender_bender'>Fender Bender: " + crashCount[0] + "</p>",
-    //         "<p class='moderate'>Moderate: " + crashCount[1] + "</p>",
-    //         "<p class='bad'>Bad: " + crashCount[2] + "</p>",
-    //         "<p class='fatal'>Fatal: " + crashCount[3] + "</p>"
+        document.querySelector(".legend").innerHTML = [
+            //"<p>Updated: " + moment.unix(time).format("h:mm:ss A") + "</p>",
+            "<p class='fender_bender'>Fender Bender: " + crashCount[0] + "</p>",
+            "<p class='moderate'>Moderate: " + crashCount[1] + "</p>",
+            "<p class='bad'>Bad: " + crashCount[2] + "</p>",
+            "<p class='fatal'>Fatal: " + crashCount[3] + "</p>"
             
-    //       ].join("");
+        ].join("");
 
-    //     //njmap.fitBounds(layers.getBounds());
-    // }
+        var bounds;
+        layers.forEach(layer => {
+            if (njmap.hasLayer(layer)) {
+                var lbounds = layer.getBounds();
+                if (!bounds || bounds < lbounds) {
+                    bounds = lbounds;
+                }
+            }
+        });
+        njmap.fitBounds(bounds);
+    }
 
-    // console.log("Done.");
+    console.log("Done.");
 }
