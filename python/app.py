@@ -29,14 +29,17 @@ def validate():
         if (crash_list and c == county and m == month):
             return True
 
-    county = c
-    month = m
+        county = c
+        month = m
 
     return False
 
 # default route; redirect to refresh if crash list is not define or to crashes otherwise
 @app.route('/')
 def home():
+
+    global county, month
+
     # redirect to crashes if defined
     if (validate()):
         return redirect(url_for("crashes", county = county, month = month))
@@ -47,14 +50,13 @@ def home():
 # return the crash list
 @app.route('/crashes')
 def crashes():
+    global county, month
 
-    return refresh()
+    if (validate()):
+        return Response(json.dumps(crash_list),  mimetype='application/json')
 
-    # if (validate()):
-    #     return Response(json.dumps(crash_list),  mimetype='application/json')
-
-    # # return the crash list as a json object
-    # return redirect("/refresh")
+    # return the crash list as a json object
+    return redirect(url_for("refresh", county = county, month = month));
 
 # refresh the crash list and the redirect to showing the results
 @app.route('/refresh')
@@ -91,9 +93,7 @@ def refresh():
             conn.close()
 
     # redirect to crashes to show the result
-    # return redirect(url_for('crashes', county = county, month = month))
-
-    return Response(json.dumps(crash_list),  mimetype='application/json')
+    return redirect(url_for('crashes', county = county, month = month))
 
 @app.route('/all')
 def all():

@@ -3,20 +3,26 @@ var layers;
 var njmap;
 
 function overlaysChanged() {
+    document.getElementById("overlay").style.display = "block";
     var bounds = getBounds(layers);
     if (bounds) njmap.fitBounds(bounds);
+
+    document.getElementById("overlay").style.display = "none";
 }
 
 function countyChanged() {
+    document.getElementById("overlay").style.display = "block";
     url = buildURL();
     
     console.log(url);
     d3.json(url).then((crashes) => {
+        console.log(crashes[0]);
         updateMarkers(crashes);
     });
 }
 
 function monthChanged() {
+    document.getElementById("overlay").style.display = "block";
     url = buildURL();
     
     console.log(url);
@@ -26,6 +32,8 @@ function monthChanged() {
 }
 
 function bodyLoaded() {
+
+    document.getElementById("overlay").style.display = "block";
 
     icons = [
         L.ExtraMarkers.icon({
@@ -83,7 +91,7 @@ function bodyLoaded() {
             var option = document.createElement("option");
             
             // set its value to the lowercased county name (to help make it case insensitive)
-            option.value = item.toLowerCase();
+            option.value = item.toLowerCase().replace(' ', '+'); // urls cannot have whitespace characters, as in Cape May County
             
             // set the text (displayed on screen) to the county name
             option.text = item;
@@ -151,9 +159,13 @@ function buildURL() {
         query += `month=${month}`;
     }
 
-    if (query == "") {
+    if (query != "") {
+        query = "crashes" + query;
+    }
+    else {
         query = "all";
     }
+    
     return BASE_URL + query;
 }
 
@@ -257,6 +269,7 @@ function updateMarkers(crashes) {
         if (bounds) njmap.fitBounds(bounds);
     }
 
+    document.getElementById("overlay").style.display = "none";
     console.log("Done.");
 }
 
