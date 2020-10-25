@@ -24,7 +24,36 @@
 
     <title>Garden State Greetings</title>
   </head>
-  <body onload="bodyLoaded()">
+  <body class="crashmap-body" onload="bodyLoaded()">
+
+    <!--Navbar BootStrap Format-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class='container'>
+        <a class="navbar-brand" href="index.html">U.S. Traffic Accident Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <!-- Setting link for Intro Page-->
+              <a class="nav-link" href="index.html">Introduction Page</a>
+            </li>
+            <!--Setting link for Data Viz page-->
+            <li class="nav-item">
+              <a class="nav-link" href="dataViz.html">Data Visualizations</a>
+            </li>
+            <!--Setting link for dataset page-->
+            <li class="nav-item">
+                <a class="nav-link" href="dataTable.html">Data Table</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="background-img"></div>
+    <div class="jumbotron"></div>
 
     <h1>Hello, New Jersey!</h1>
 
