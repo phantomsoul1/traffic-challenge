@@ -1,5 +1,7 @@
 function createCharts(myChart) {
-  d3.json("https://phantomsoul-traffic-challenge.herokuapp.com/").then(function(data) {
+  var queryUrl = (`${BASE_URL}all`)
+
+  d3.json(queryUrl).then(function(data) {
   console.log(data);
   
   var crashes = data;
