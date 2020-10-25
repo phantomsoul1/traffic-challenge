@@ -2,7 +2,7 @@ function bodyloaded() {
   var tbody = d3.select("tbody");
   var table = d3.select("table");
   table.attr("class", "table table-striped");
-  var queryUrl = "https://phantomsoul-traffic-challenge.herokuapp.com/crashes";
+  var queryUrl = `${BASE_URL}all`;
   // console.log(queryUrl);
   d3.json(queryUrl).then(function(data){
     console.log("data");
