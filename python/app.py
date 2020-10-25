@@ -48,11 +48,13 @@ def home():
 @app.route('/crashes')
 def crashes():
 
-    if (validate()):
-        return Response(json.dumps(crash_list),  mimetype='application/json')
+    return refresh()
 
-    # return the crash list as a json object
-    return redirect("/refresh")
+    # if (validate()):
+    #     return Response(json.dumps(crash_list),  mimetype='application/json')
+
+    # # return the crash list as a json object
+    # return redirect("/refresh")
 
 # refresh the crash list and the redirect to showing the results
 @app.route('/refresh')
@@ -89,7 +91,9 @@ def refresh():
             conn.close()
 
     # redirect to crashes to show the result
-    return redirect(url_for('crashes', county = county, month = month))
+    # return redirect(url_for('crashes', county = county, month = month))
+
+    return Response(json.dumps(crash_list),  mimetype='application/json')
 
 @app.route('/all')
 def all():
