@@ -1,7 +1,11 @@
 var icons;
 var layers;
 var njmap;
-var markerGroup;
+
+function overlaysChanged() {
+    var bounds = getBounds(layers);
+    if (bounds) njmap.fitBounds(bounds);
+}
 
 function countyChanged() {
     url = buildURL();
@@ -196,6 +200,9 @@ function initMapDisplay() {
     njmap = L.map('mapblock', {layers: [grayscale, layers[0]]}).setView([40.0583, -74.4057], 8);
     L.control.layers(baselayers, overlays).addTo(njmap);
 
+    njmap.on('overlayadd', overlaysChanged);
+    njmap.on('overlayremove', overlaysChanged);
+
     var info = L.control({
         position: "bottomright"
     });
@@ -244,23 +251,26 @@ function updateMarkers(crashes) {
             
         ].join("");
 
-        // var bounds;
-        // layers.forEach(layer => {
-        //     if (njmap.hasLayer(layer)) {
-        //         var lbounds = layer.getBounds();
-        //         if (!bounds || bounds < lbounds) {
-        //             bounds = lbounds;
-        //         }
-        //     }
-        // });
-        // njmap.fitBounds(bounds);
+        var bounds = getBounds(layers);
+        if (bounds) njmap.fitBounds(bounds);
     }
 
     console.log("Done.");
 }
 
-function getMaxBounds(layers) {
+function getBounds(layers) {
     var bounds;
+    layers.forEach(layer => {
+        var lbounds = layer.getBounds();
+        if (lbounds) {
+            if (bounds) {
+                bounds.extend(lbounds);
+            }
+            else {
+                bounds = lbounds;
+            }
+        }
+    })
 
     return bounds;
 }
