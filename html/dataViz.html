@@ -6,55 +6,52 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
   <title> Home Page </title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/css/site.css">
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="static/js/config.js"></script>
-  <script src="static/js/dataViz.js"></script>
-  
-
 </head> 
-<body>
-  
+<header>
   <!--Navbar BootStrap Format-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-      <div class='container'>
-        <a class="navbar-brand" href="index.html">New Jersey Traffic Accident Project</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <!-- Setting link for Intro Page-->
-              <a class="nav-link" href="index.html">Introduction Page</a>
-            </li>
-            <!--Setting link for Data Viz page-->
-            <li class="nav-item">
-                <a class="nav-link" href="dataViz.html">Data Visualizations</a>
-            </li>
-            <!--Setting link for dataset page-->
-            <li class="nav-item">
-                <a class="nav-link" href="dataTable.html">Data Table</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <a class="navbar-brand" href="index.html">New Jersey Traffic Accident Project</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Data Visualizations 
+            </a>
+            <ul class="dropdown-menu blackBg">
+              <li><a class="dropdown-item" href="dataViz.html">Bubble Chart</a></li>
+              <li><a class="dropdown-item" href="dataViz2.html">Bar Chart</a></li>
+              <li><a class="dropdown-item" href="crashmap.html">Crash Map</a></li>
+            </ul>
+          </li>
+        <a class="nav-link" href="dataTable.html">Data Table</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
       <!--Setting Header content for page in container-->
       <div class="jumbotron">
-        <!-- <h1 class="display-4">Group 6: U.S. Traffic Accident Project</h1>
-        <p class="lead">Group Members: Jake Byford, George Hyros, Robert Peron, Michael Seifer, Narender Sharma</p>
-        <hr class="my-4">
-          <div class="col-md-8">
-           <p>This project is to explore the 2019 U.S. Traffic Accident Data through various Data Visualizations. Using the dataset provided by Kaggle.com, we explored different trends and relationships in the U.S. Traffic Accidents dataset.
-           <br><br> This site provides an Introduction Page for our team's project, as well as the Data Visualizations and a table of the actual dataset.  </p>
-           <hr>
-           <p>Please use the navbar above to access the different pages on the site for the project. </p> -->
-          </div>
-          <div id="myDiv"></div>       
+        <h1>Bubble Chart</h1>
       </div>
+          <div id="myDiv"></div>       
+      
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="static/css/site.css">
+    
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+      <script src="static/js/config.js"></script>
+      <script src="static/js/dataViz.js"></script>
+      
 </body>
 </html>
