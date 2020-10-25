@@ -236,10 +236,12 @@ function updateMarkers(crashes) {
 
             crashCount[sindex]++;
 
-            L.marker([lat, lng], {
-                icon: icon
-            }).bindPopup(`<b>Details:</b><br>City:${city}<br>Weather Conditions: ${weather}<br>Date/Time: ${time}`)
-                .addTo(layers[sindex]);
+            L.marker([lat, lng], {icon: icon})
+                .bindPopup(`<b>Details:</b><br>City:${city}<br>Weather Conditions: ${weather}<br>Date/Time: ${time}`)
+                .addTo(layers[sindex])
+                .on('mouseover', function() {
+                    this.bounce(1);
+                });
         });
 
         document.querySelector(".legend").innerHTML = [
