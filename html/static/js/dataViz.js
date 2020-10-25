@@ -1,5 +1,5 @@
 function createCharts(myChart) {
-  var queryUrl = (`${BASE_URL}all`)
+  var queryUrl = `${BASE_URL}all`;
 
   d3.json(queryUrl).then(function(data) {
   console.log(data);
