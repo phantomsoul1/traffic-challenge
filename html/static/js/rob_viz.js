@@ -19,12 +19,42 @@ var svg = d3.select("body")
   .append("svg")
   .attr("height", svgHeight)
   .attr("width", svgWidth);
-
+svg.append("text")
+  .attr("x", (chartWidth / 2))             
+  .attr("y", (chartHeight /20))
+  .attr("text-anchor", "middle")  
+  .style("font-size", "32px") 
+  .style("text-decoration", "underline")  
+  .text("Frequency of Traffic Accidents Across Weather Conditions");
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
+  var toolTip = d3.tip()
+    .attr("class", "tooltip")
+    .html(function(d){
+      return(`Total Accidents ${d.Count}`)
+    });
+    svg.call(toolTip);
 
-queryUrl = "http://127.0.0.1:5000/all"
+  // barGroups.on("mouseover", function(d){
+  //   toolTip.show(d, this);
+  // });
+  //   on("mouseout", function(d){
+  //     toolTip.hide(d);
+  // });
+
+  
+svg.append("text")
+  .attr("x", chartWidth / 2)
+  .attr("y", -chartHeight + 1170)
+  .attr('text-anchor', 'middle')
+  .text('Weather Conditions')
+  .style("font-size", "24px");
+
+// });
+
+
+var queryUrl = (`${BASE_URL}all`)
 d3.json(queryUrl).then(function(crashes) {
 
     var weatherConditions = crashes.map(object => object.weather_condition);
@@ -202,41 +232,41 @@ console.log(conditionArr);
     .attr("width", xBandScale.bandwidth())
     .attr("height", d => chartHeight - yLinearScale(d.Count));
   
-  var toolTip = d3.tip()
-    .attr("class", "tooltip")
-    .html(function(d){
-      return(d.Count)
-    });
-  chartGroup.call(toolTip)
+  // var toolTip = d3.tip()
+  //   .attr("class", "tooltip")
+  //   .html(function(d){
+  //     return(d.Count)
+  //   });
+  // chartGroup.call(toolTip)
 
   barGroups.on("mouseover", function(d){
     toolTip.show(d, this);
-  });
-    on("mouseout", function(d){
+  })
+    .on("mouseout", function(d){
       toolTip.hide(d);
   });
 
-svg.append("text")
-    .attr("x", (chartWidth / 2))             
-    .attr("y", (chartHeight /20))
-    .attr("text-anchor", "middle")  
-    .style("font-size", "32px") 
-    .style("text-decoration", "underline")  
-    .text("Frequency of Traffic Accidents Across Weather Conditions");
+// svg.append("text")
+//     .attr("x", (chartWidth / 2))             
+//     .attr("y", (chartHeight /20))
+//     .attr("text-anchor", "middle")  
+//     .style("font-size", "32px") 
+//     .style("text-decoration", "underline")  
+//     .text("Frequency of Traffic Accidents Across Weather Conditions");
 
-svg.append("text")
-    .attr("x", chartWidth / 2)
-    .attr("y", -chartHeight + 1170)
-    .attr('text-anchor', 'middle')
-    .text('Weather Conditions')
-    .style("font-size", "24px");
-svg.append("text")
-    .attr(rotate)
-    .attr("x", -chartWidth + 1000)
-    .attr("y", chartHeight/2)
-    .attr('text-anchor', 'middle')
-    .text('Traffic Accident Total (Count)')
-    .style("font-size", "24px");
+// svg.append("text")
+//     .attr("x", chartWidth / 2)
+//     .attr("y", -chartHeight + 1170)
+//     .attr('text-anchor', 'middle')
+//     .text('Weather Conditions')
+//     .style("font-size", "24px");
+// svg.append("text")
+//     .attr(rotate)
+//     .attr("x", -chartWidth + 1000)
+//     .attr("y", chartHeight/2)
+//     .attr('text-anchor', 'middle')
+//     .text('Traffic Accident Total (Count)')
+//     .style("font-size", "24px");
 });
 
 
