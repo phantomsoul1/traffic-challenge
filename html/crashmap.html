@@ -22,9 +22,9 @@
     <!-- Site -->
     <link rel="stylesheet" href="static/css/site.css" />
 
-    <title>Garden State Greetings</title>
+    <title>Crashes by Location</title>
   </head>
-  <body class="crashmap-body" onload="bodyLoaded()">
+  <body onload="bodyLoaded()">
 
     <!--Navbar BootStrap Format-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -53,22 +53,24 @@
     </nav>
 
     <div class="background-img"></div>
-    <div class="jumbotron"></div>
+    <div class="jumbotron">
+      <h1>Crashes by Location</h1>
+    </div>
 
-    <h1>Hello, New Jersey!</h1>
-
-    <ion-icon name="car" style="color:red;"></ion-icon>
-
-    <div>
-        <form>
-            <label>County</label>
-            <select id="counties" name="counties" onchange="countyChanged()">
+    <div class="container-fluid">
+        <form class="form-inline">
+            <div class="form-group">
+              <label>County</label>
+              <select class="form-control" id="counties" name="counties" onchange="countyChanged()">
                 <option value=""></option>
-            </select>
-            <label>Month</label>
-            <select id="months" name="months" onchange="monthChanged()">
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Month</label>
+              <select class="form-control" id="months" name="months" onchange="monthChanged()">
                 <option value=""></option>
-            </select>
+              </select>
+            </div>
         </form>
     </div>
 
