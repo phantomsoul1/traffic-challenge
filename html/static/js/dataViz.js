@@ -4,6 +4,7 @@ function createCharts(myChart) {
   d3.json(queryUrl).then(function(data) {
   console.log(data);
   
+  // Create variables for data
   var crashes = data;
   var severity = crashes.map(object => object.severity);
   var counties = crashes.map(object => object.county);
@@ -11,6 +12,7 @@ function createCharts(myChart) {
 
   //var sum = 0;
   
+  // Create empty folders to append
   var capeMay = [];
   var mercer = [];
   var ocean = [];
