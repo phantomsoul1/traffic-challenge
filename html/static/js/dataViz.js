@@ -12,6 +12,7 @@ function createCharts(myChart) {
 
   //var sum = 0;
   
+  // Create empty folders to append
   var capeMay = [];
   var mercer = [];
   var ocean = [];
