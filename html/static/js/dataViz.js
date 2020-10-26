@@ -101,6 +101,7 @@ counties.forEach(function(county){
   }
 });
 
+//create array of length of county accidents
 var numCapeMay = capeMay.length;
 var numMercer = mercer.length;
 var numOcean = ocean.length;
