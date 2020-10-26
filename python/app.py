@@ -9,11 +9,6 @@ from sqlite3 import Error
 app = Flask(__name__)
 cors = CORS(app)
 
-#global crash list - we don't need to reload this every time its requested
-crash_list = None
-county = None
-month = None
-
 def validate():
     global county, month
     
@@ -37,34 +32,41 @@ def validate():
 # default route; redirect to refresh if crash list is not define or to crashes otherwise
 @app.route('/')
 def home():
-
-    global county, month
-
-    # redirect to crashes if defined
-    if (validate()):
-        return redirect(url_for("crashes", county = county, month = month))
+    county = None
+    month = None
     
-    # otherwise refresh the crash list first
-    return redirect(url_for("refresh", county = county, month = month))
+    if (request.method == 'GET'):
+        county = request.args.get("county")
+        month = request.args.get("month")
+
+    return redirect(url_for("crashes", county = county, month = month))
 
 # return the crash list
 @app.route('/crashes')
 def crashes():
-    global county, month, crash_list
+    county = None
+    month = None
+    
+    if (request.method == 'GET'):
+        county = request.args.get("county")
+        month = request.args.get("month")
 
-    if (validate()):
-        return Response(json.dumps(crash_list),  mimetype='application/json')
-
-    # return the crash list as a json object
-    return redirect(url_for("refresh", county = county, month = month))
+    return Response(json.dumps(getData(county, month)), mimetype='application/json')
 
 # refresh the crash list and the redirect to showing the results
 @app.route('/refresh')
 def refresh():
+    county = None
+    month = None
+    
+    if (request.method == 'GET'):
+        county = request.args.get("county")
+        month = request.args.get("month")
 
-    # (this is where the sausage is made...)
-    # set crash_list to global so we update the global one for the other routes
-    global county, month, crash_list
+    return Response(json.dumps(getData(county, month)), mimetype='application/json')
+
+
+def getData(county, month):
 
     # get the path to the crashes database
     # (pwd_path enables python to find files within this project)
@@ -73,6 +75,7 @@ def refresh():
     
     # define a connection variable
     conn = None
+    crash_list = None
 
     try:
 
@@ -93,7 +96,7 @@ def refresh():
             conn.close()
 
     # redirect to crashes to show the result
-    return redirect(url_for('crashes', county = county, month = month))
+    return crash_list
 
 @app.route('/all')
 def all():
@@ -105,6 +108,7 @@ def all():
     
     # define a connection variable
     conn = None
+    crash_list = None
 
     try:
 
