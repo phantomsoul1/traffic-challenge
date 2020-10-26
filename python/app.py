@@ -50,13 +50,13 @@ def home():
 # return the crash list
 @app.route('/crashes')
 def crashes():
-    global county, month
+    global county, month, crash_list
 
     if (validate()):
         return Response(json.dumps(crash_list),  mimetype='application/json')
 
     # return the crash list as a json object
-    return redirect(url_for("refresh", county = county, month = month));
+    return redirect(url_for("refresh", county = county, month = month))
 
 # refresh the crash list and the redirect to showing the results
 @app.route('/refresh')
